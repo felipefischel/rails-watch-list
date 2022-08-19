@@ -1,0 +1,30 @@
+<div class = container>
+
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+  url(<%= image_path 'banner.jpeg' %>);">
+
+    <div class="container">
+      <h1> <%= @list.name  %> </h1>
+      <p>Lists of some of the best movies</p>
+      <a class="btn btn-flat" href="<%= new_list_bookmark_path(@list) %>">Add a new movie</a>
+    </div>
+  </div>
+
+  <p><strong>Movies:</strong></p>
+  <ul class="cards">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(<%= bookmark.movie.poster_url%>)">
+        <p><%= bookmark.movie.title%></p>
+        <p>Rating: <%= bookmark.movie.rating%></p>
+      </div>
+
+    <% end %>
+  </ul>
+
+  <%= link_to "Add a new movie", new_list_bookmark_path(@list) %>
+
+  <div>
+    <%= link_to "Back to lists", root_path %>
+  </div>
+
+</div>

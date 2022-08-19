@@ -1,0 +1,18 @@
+<div class = "container">
+  <%= render "shared/navbar" %>
+  <%= render "shared/banner" %>
+
+  <h1>Lists</h1>
+  <ul class="list-group cards">
+    <% @lists.each do |list| %>
+      <li class="list-group-item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://cdn.pixabay.com/photo/2017/04/05/15/36/film-2205325_1280.jpg)">
+        <%= link_to list.name, list %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div>
+    <%= link_to "Create a new list", new_list_path %>
+  </div>
+
+</div>
